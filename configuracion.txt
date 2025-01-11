@@ -1,0 +1,60 @@
+" Establece una barra lateral izquierda que muestra los 
+" numero de linea
+set number
+" Establece un pequenio margen inicial de espacios al 
+" inicio del documento.
+set numberwidth=3
+" Permite copiar archivos 
+set clipboard=unnamed
+""set mouse=a
+" Permite que el contenido copiado se guarde en el porta
+" papeles del sistema
+" set clipboard=unnamedplus
+
+
+" Habilita la sintaxis de acuerdo al tipo de documento.
+syntax enable
+
+set showcmd
+" Establece el tipo de codificacion.
+set encoding=utf-8
+" Permite mostrar donde abre y cierra un parentesis, llave  
+" o corchete.
+set showmatch
+" Identa el text con espacion y no con tabulaciones
+"set sw=4
+set tabstop=3
+" Muestra el archivo con el cual estamos trabajando
+set laststatus=2
+
+colorscheme retrobox
+let g:retrobox_contrast_dark = "hard"
+
+" Activa el corrector ortografico.
+" set spell
+" Corrector ortografico esp ing
+" set spelllang=en
+" Muestra sugerencias
+" set spellsuggest=5
+
+
+
+call plug#begin('~/.vim/plugged')
+" Temas
+Plug 'morhetz/gruvbox'
+" Permite saltar a cualquier parte del documento con el mause.
+Plug 'easymotion/vim-easymotion'
+" Muestra un arbol de directorio
+Plug 'scrooloose/nerdtree'
+" Permite poder moverse entro los archivos abiertos con nt
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
+
+" Crea combinaciones de tecla para poder ejercutar los pluggins
+let mapleader=" "
+nmap <Leader>s <PLug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
+
+hi CursorLine   cterm=NONE ctermbg=235
+hi CursorColumn cterm=NONE ctermbg=235
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR
